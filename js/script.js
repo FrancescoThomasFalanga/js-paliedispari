@@ -15,6 +15,14 @@ let palindromeEl = document.getElementById("palindroma");
 palindromeEl.innerText = checkPalindrome(userWord);
 
 
+// aggiungo il ciclo while così finchè non si compila, non si potrà andare avanti
+while (userWord == null || userWord == "") {
+
+    userWord = prompt("Inserisci una parola");
+
+}
+
+
 // creo la variabile secondo la quale se la parola è palindroma non entra e va avanti, se non lo è entro nel ciclo for
 function checkPalindrome(word) {
 
@@ -25,13 +33,15 @@ function checkPalindrome(word) {
     for (let i = 0; i < wordLength / 2; i++) {
         // se la prima metà della parola è diversa dalla seconda, allora non è palindroma
         if (userWord[i] !== userWord[wordLength - 1 - i]) {
+
             return "La parola che hai inserito non è palindroma";
+
         } 
 
     }
+
     // ritorniamo questo risultato = palindroma
     return "La parola che hai inserito è palindroma";
-
 
 }
 
@@ -45,43 +55,56 @@ Dichiariamo chi ha vinto.
 */
 
 
+
 // chiedo all'utente di scegliere pari o dispari
+const evenOrOddEl = document.getElementById("even-or-odd");
 const userNumberEl = document.getElementById("user-number");
 const userButtonEl = document.getElementById("user-button");
 const userOutputEl = document.getElementById("user-output");
 
+// inizializzo una variabile somma che potrà essere riutilizzata in qualsiasi momento
 let somma;
-let evenOrOdd = prompt("Pari o Dispari?")
 
+// al click del bottone, dopo aver inserito i dati, si entrerà
 userButtonEl.addEventListener("click", function() {
-    if(isNaN(userNumberEl.value) || userNumberEl.value == "") {
+    // se ciò che si inserisce non è un numero o non è pari o dispari uscirà tale messaggio
+    if(isNaN(userNumberEl.value) || userNumberEl.value == "" || evenOrOddEl.value == "" || evenOrOddEl.value != "pari" && evenOrOddEl.value != "dispari") {
 
-        userOutputEl.innerText = "non è un numero";
+        userOutputEl.innerText = "Compila entrambi i campi correttamente";
 
-    }
+    } else {
 
+        // inizializzo una variabile con contenuto la variabile di numeri casuali
+        let randomNumbers = randomNumberBetween(1, 5);
 
-    let randomNumbers = randomNumberBetween(1, 5);
+        // console.log(randomNumbers);
 
-    console.log(randomNumbers);
-
-    somma = randomNumbers + parseInt(userNumberEl.value);
+        // sommo i due numeri = computer + utente
+        somma = randomNumbers + parseInt(userNumberEl.value);
     
-    console.log(somma);
+        // console.log(somma);
 
-    isEvenOrOdd(somma)
+        // isEvenOrOdd(somma)
 
-    console.log(isEvenOrOdd(somma));
+        // console.log(isEvenOrOdd(somma));
 
-    userOutputEl.innerText = `Hai deciso di giocare ${evenOrOdd}.
-                              Il numero che hai scelto è: ${userNumberEl.value}. 
-                              Il numero che ha generato il computer è: ${randomNumbers}. 
-                              Quindi ${isEvenOrOdd(somma)}`;
+        // do' l'output in pagina...
+        userOutputEl.innerText = `Hai deciso di giocare ${evenOrOddEl.value}.
+        Il numero che hai scelto è: ${userNumberEl.value}. 
+        Il numero che ha generato il computer è: ${randomNumbers}. 
+        Il risultato è: ${somma}.
+        Quindi ${isEvenOrOdd(somma)}.`;
+    }
 
 });
 
 
 
+
+
+
+
+// FUNCTIONS
 
 // numero random del computer
 function randomNumberBetween(min, max) {
@@ -93,12 +116,10 @@ function randomNumberBetween(min, max) {
 
 
 
-
-
-//  se un numero è pari o dispari
+// se un numero è pari o dispari
 function isEvenOrOdd(number) {
 
-    if(number % 2 == 0 && evenOrOdd == "pari") {
+    if(number % 2 == 0 && evenOrOddEl.value == "pari") {
         
         return " hai vinto";
         
@@ -110,7 +131,7 @@ function isEvenOrOdd(number) {
 
 }
 
-
+// /FUNCTIONS
 
 
 

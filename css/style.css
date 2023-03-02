@@ -3,10 +3,10 @@
     padding: 0;
     box-sizing: border-box;
     text-align: center;
+    font-family: 'Montserrat', sans-serif;
 }
 
 body {
-    font-family: 'Montserrat', sans-serif;
     background-color: #f7f3d7;
 }
 
@@ -20,18 +20,15 @@ body {
 }
 
 h1 {
+    margin-top: 100px;
     font-weight: normal;
 }
 
 button, input {
-    border-radius: 20px;
-    background-color: #f0c689;
-    padding: 10px;
-    border-color: #f0c689;
-    box-shadow: 2px 1px 8px #8cbfd2;
-    font-family: 'Montserrat', sans-serif;
-
-    text-align: center;
-
     margin: 20px 5px;
+    padding: 10px;
+    box-shadow: 2px 1px 8px #8cbfd2;
+    border-radius: 20px;
+    border-color: #f0c689;
+    background-color: #f0c689;
 }
