@@ -14,3 +14,24 @@ body {
     margin: 100px 0;
     font-size: 32px;
 }
+
+#user-output {
+    font-size: 20px;
+}
+
+h1 {
+    font-weight: normal;
+}
+
+button, input {
+    border-radius: 20px;
+    background-color: #f0c689;
+    padding: 10px;
+    border-color: #f0c689;
+    box-shadow: 2px 1px 8px #8cbfd2;
+    font-family: 'Montserrat', sans-serif;
+
+    text-align: center;
+
+    margin: 20px 5px;
+}

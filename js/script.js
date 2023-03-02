@@ -34,3 +34,86 @@ function checkPalindrome(word) {
 
 
 }
+
+
+
+/* L’utente sceglie pari o dispari e inserisce un numero da 1 a 5.
+Generiamo un numero random (sempre da 1 a 5) per il computer (usando una funzione).
+Sommiamo i due numeri
+Stabiliamo se la somma dei due numeri è pari o dispari (usando una funzione)
+Dichiariamo chi ha vinto.
+*/
+
+
+// chiedo all'utente di scegliere pari o dispari
+const userNumberEl = document.getElementById("user-number");
+const userButtonEl = document.getElementById("user-button");
+const userOutputEl = document.getElementById("user-output");
+
+let somma;
+let evenOrOdd = prompt("Pari o Dispari?")
+
+userButtonEl.addEventListener("click", function() {
+    if(isNaN(userNumberEl.value) || userNumberEl.value == "") {
+
+        userOutputEl.innerText = "non è un numero";
+
+    }
+
+
+    let randomNumbers = randomNumberBetween(1, 5);
+
+    console.log(randomNumbers);
+
+    somma = randomNumbers + parseInt(userNumberEl.value);
+    
+    console.log(somma);
+
+    isEvenOrOdd(somma)
+
+    console.log(isEvenOrOdd(somma));
+
+    userOutputEl.innerText = `Hai deciso di giocare ${evenOrOdd}.
+                              Il numero che hai scelto è: ${userNumberEl.value}. 
+                              Il numero che ha generato il computer è: ${randomNumbers}. 
+                              Quindi ${isEvenOrOdd(somma)}`;
+
+});
+
+
+
+
+// numero random del computer
+function randomNumberBetween(min, max) {
+
+    let random = Math.floor(Math.random() * (max - min + 1) + min);
+
+    return random;
+}
+
+
+
+
+
+//  se un numero è pari o dispari
+function isEvenOrOdd(number) {
+
+    if(number % 2 == 0 && evenOrOdd == "pari") {
+        
+        return " hai vinto";
+        
+    } else {
+        
+        return " hai perso";
+        
+    }
+
+}
+
+
+
+
+
+
+
+
