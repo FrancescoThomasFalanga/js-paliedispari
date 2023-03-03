@@ -6,21 +6,38 @@ Creare una funzione per capire se la parola inserita è palindroma
 
 
 // chiedo all'utente di inserire una parola
-let userWord = prompt("Inserisci una parola");
+let userWord = document.getElementById("user-word");
 
-// inizializzo una variabile per inserire nel DOM il risultato
-let palindromeEl = document.getElementById("palindroma");
+let checkButtonEl = document.getElementById("check-button");
 
-// scrivo nel DOM il risultato
-palindromeEl.innerText = checkPalindrome(userWord);
+checkButtonEl.addEventListener("click", function() {
+
+    // inizializzo una variabile per inserire nel DOM il risultato
+    let palindromeEl = document.getElementById("palindroma");
+
+    if (userWord.value == "") {
+
+        palindromeEl.innerText = "Scrivi Qualcosa!";
+
+    } else {
+
+        // scrivo nel DOM il risultato
+        palindromeEl.innerText = checkPalindrome(userWord.value);
+
+        console.log(checkPalindrome(userWord));
+
+    }
+
+})
+
 
 
 // aggiungo il ciclo while così finchè non si compila, non si potrà andare avanti
-while (userWord == null || userWord == "") {
+// while (userWord == null || userWord == "") {
 
-    userWord = prompt("Inserisci una parola");
+//     userWord = prompt("Inserisci una parola");
 
-}
+// }
 
 
 // creo la variabile secondo la quale se la parola è palindroma non entra e va avanti, se non lo è entro nel ciclo for
@@ -68,7 +85,7 @@ let somma;
 // al click del bottone, dopo aver inserito i dati, si entrerà
 userButtonEl.addEventListener("click", function() {
     // se ciò che si inserisce non è un numero o non è pari o dispari uscirà tale messaggio
-    if(isNaN(userNumberEl.value) || userNumberEl.value == "" || evenOrOddEl.value == "" || evenOrOddEl.value != "pari" && evenOrOddEl.value != "dispari") {
+    if(isNaN(userNumberEl.value) || userNumberEl.value == "" || evenOrOddEl.value == "" || (evenOrOddEl.value !== "pari" && evenOrOddEl.value !== "dispari")) {
 
         userOutputEl.innerText = "Compila entrambi i campi correttamente";
 
@@ -119,11 +136,11 @@ function randomNumberBetween(min, max) {
 // se un numero è pari o dispari
 function isEvenOrOdd(number) {
 
-    if(number % 2 == 0 && evenOrOddEl.value == "pari") {
+    if((number % 2 == 0 && evenOrOddEl.value == "pari") || (number % 2 != 0 && evenOrOddEl.value == "dispari")) {
         
         return " hai vinto";
         
-    } else {
+    } else if ((number % 2 != 0 && evenOrOddEl.value == "pari") || (number % 2 == 0 && evenOrOddEl.value == "dispari")){
         
         return " hai perso";
         
