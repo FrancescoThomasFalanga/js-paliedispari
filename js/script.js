@@ -27,12 +27,12 @@ while (userWord == null || userWord == "") {
 function checkPalindrome(word) {
 
     // inizializzo una variabile per non scrivere sempre .length
-    let wordLength = userWord.length;
+    let wordLength = word.length;
 
-    // creo un ciclo for per calcolare se la parola tagliata a metà sia la stessa
+    // creo un ciclo for per calcolare se la prima lettera e l'ultima corrispondente siano uguali, fino ad arrivare alla metà
     for (let i = 0; i < wordLength / 2; i++) {
-        // se la prima metà della parola è diversa dalla seconda, allora non è palindroma
-        if (userWord[i] !== userWord[wordLength - 1 - i]) {
+        // se la prima lettera è diversa dall'ultima, allora non è palindroma
+        if (word[i] !== word[wordLength - 1 - i]) {
 
             return "La parola che hai inserito non è palindroma";
 
